@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Opening Hours</h1>
+<h3><%= @shop.name %></h3>
+
+<span class="bold"><%= t "schedule" %>: </span>
+<% @opening_hours.each_with_index do |opening_hour, index| %>
+  <span class="<%= index === 0 ? 'bold' : 'aligned-left' %>">
+  <% d = (opening_hour.first > 7 ? opening_hour.first - 7 : opening_hour.first) %>
+  <%= t "date.day_name_#{d}" %>: 
+    <% opening_hour[1].each do |hour| %>
+      <% if hour.closed %>
+        <%= t "closed" %>
+      <% else %>
+        <%= link_to "#{hour.open.strftime("%H:%M")} - #{hour.close.strftime("%H:%M")}", edit_shop_opening_hour_path(hour.shop, hour) %>
+      <% end %>
+      <%# link_to 'Destroy', shop_opening_hour_path(@shop, opening_hour), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </span>
+<br>
+<% end %>
+
+<br>
+<br>
+
+<%= link_to 'New Opening Hour', new_shop_opening_hour_path %>

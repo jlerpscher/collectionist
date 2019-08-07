@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_003801) do
+ActiveRecord::Schema.define(version: 2019_08_07_023606) do
+
+  create_table "opening_hours", force: :cascade do |t|
+    t.integer "shop_id"
+    t.time "open"
+    t.time "close"
+    t.integer "day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "closed"
+    t.index ["shop_id"], name: "index_opening_hours_on_shop_id"
+  end
 
   create_table "shops", force: :cascade do |t|
     t.string "name"

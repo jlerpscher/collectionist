@@ -1,0 +1,41 @@
+<%= form_with(model: @opening_hour, url: shop_opening_hours_path, local: true) do |form| %>
+  <% if opening_hour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(opening_hour.errors.count, "error") %> prohibited this opening_hour from being saved:</h2>
+
+      <ul>
+      <% opening_hour.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :shop_id, value: params[:shop_id] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :open %>
+    <%= form.time_select :open %>
+  </div>
+
+  <div class="field">
+    <%= form.label :close %>
+    <%= form.time_select :close %>
+  </div>
+
+  <div class="field">
+    <%= form.label :day %>
+    <%= form.number_field :day, min: 1, max: 7 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :closed %>
+    <%= form.check_box :closed %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

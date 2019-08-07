@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shop: one
+  open: 2019-08-07 02:40:00
+  close: 2019-08-07 02:40:00
+  day: 1
+
+two:
+  shop: two
+  open: 2019-08-07 02:40:00
+  close: 2019-08-07 02:40:00
+  day: 1
