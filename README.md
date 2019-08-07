@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- bundle install
+- rake db:migrate
+- /shops/new to create a shop
+- /shops/:shop_id/opening_hours to access the list of opening hours of the shop
+- (Destroy link is commented in the code)
